@@ -208,6 +208,32 @@
             transform: translateY(-2px);
         }
         
+        /* Like Button */
+        .btn-like {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 20px;
+        }
+        
+        .btn-like.liked {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .btn-like:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+        
+        .like-icon {
+            font-size: 1.2rem;
+        }
+        
         /* Sections */
         section {
             padding: 100px 0;
@@ -317,6 +343,9 @@
         
         .project-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
         
         .project-title {
@@ -328,6 +357,36 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 1rem;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: var(--secondary-bg);
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         /* Contact Section */
@@ -387,6 +446,31 @@
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
+        }
+        
+        /* Footer Contact Card */
+        .contact-card {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-card .contact-item {
+            margin-bottom: 1rem;
         }
         
         /* Footer */
@@ -522,6 +606,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#video">Video</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -533,8 +618,8 @@
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
             <h1 class="hero-title">Hi, I'm Siven</h1>
-            <h1>Your skills matter more than your degree. 👨🏻‍💻</h1>
-            <p class="hero-subtitle">Information technology Student & Creative Developer</p>
+            <h1>Your skills matter more than your degree. 👨🏻‍💻</h1>
+            <p class="hero-subtitle">Information Technology Student & Creative Developer</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -547,7 +632,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="WhatsApp Image 2025-06-13 at 13.19.59_287e90be.jpg" alt="Portrait of a computer science student working on a laptop in a modern university library with books and technology" />
+                <img src="WhatsApp Image 2025-09-16 at 19.30.40_620a8fd5.jpg" alt="Portrait of a computer science student working on a laptop in a modern university library with books and technology" />
             </div>
             <div class="about-text">
                 <h3>Passionate Developer & Tech Enthusiast</h3>
@@ -599,7 +684,10 @@
                 <div class="project-content">
                     <h3 class="project-title">E-Commerce Platform</h3>
                     <p class="project-desc">Full-stack e-commerce solution with React, Node.js, and MongoDB</p>
-                    <a href="#" class="btn btn-secondary">View Project</a>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-secondary">View Project</a>
+                        <button class="btn btn-like"><span class="like-icon">❤️</span> Like</button>
+                    </div>
                 </div>
             </div>
             <div class="project-card">
@@ -609,7 +697,10 @@
                 <div class="project-content">
                     <h3 class="project-title">AI Fitness Coach</h3>
                     <p class="project-desc">Machine learning app for personalized workout and nutrition plans</p>
-                    <a href="#" class="btn btn-secondary">View Project</a>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-secondary">View Project</a>
+                        <button class="btn btn-like"><span class="like-icon">❤️</span> Like</button>
+                    </div>
                 </div>
             </div>
             <div class="project-card">
@@ -619,7 +710,25 @@
                 <div class="project-content">
                     <h3 class="project-title">Social Analytics Dashboard</h3>
                     <p class="project-desc">Real-time analytics platform for social media performance tracking</p>
-                    <a href="#" class="btn btn-secondary">View Project</a>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-secondary">View Project</a>
+                        <button class="btn btn-like"><span class="like-icon">❤️</span> Like</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <div class="container">
+            <h2 class="section-title">Showcase Video</h2>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video    playsinline controls>
+                        <source src="Generated File September 23, 2025 - 3_55PM.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
@@ -675,6 +784,27 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="contact-card">
+                <h3>Contact Me</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <p>kanojiyasiven258@email.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <p>+91 9638646314</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <p>Gujarat, Surat</p>
+                    </div>
+                </div>
+            </div>
             <div class="social-links">
                 <a href="#" class="social-link">📘</a>
                 <a href="#" class="social-link">🐦</a>
@@ -811,10 +941,15 @@
             alert('Thank you for your message! I\'ll get back to you soon.');
             this.reset();
         });
+        
+        // Like button functionality
+        document.querySelectorAll('.btn-like').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('liked');
+                const icon = button.querySelector('.like-icon');
+                icon.textContent = button.classList.contains('liked') ? '❤️' : '🤍';
+            });
+        });
     </script>
 </body>
-
 </html>
-
-
-
